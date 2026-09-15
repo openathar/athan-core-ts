@@ -1,0 +1,34 @@
+{
+  "name": "@openathar/athan-core-ts",
+  "version": "0.1.0",
+  "description": "TypeScript mirror of athan-core-java — prayer times, Qibla, Hijri calendar. Shared by athar-web and athar-mobile-app.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openathar/athan-core-ts.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
