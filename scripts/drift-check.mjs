@@ -21,7 +21,8 @@ async function get(path) {
   for (let attempt = 0; attempt < 5; attempt++) {
     await sleep(PAUSE_MS);
     try {
-      const res = await fetch(`${API}${path}`);
+      // Eigener User-Agent: die Plattform-Auswertung zählt das als eigene Automatik, nicht als Besucher.
+      const res = await fetch(`${API}${path}`, { headers: { "User-Agent": "zc-drift-check/1.0" } });
       if (res.status === 429) { await sleep(5000 * (attempt + 1)); continue; }
       if (!res.ok) return { error: `HTTP ${res.status}` };
       return { json: await res.json() };
