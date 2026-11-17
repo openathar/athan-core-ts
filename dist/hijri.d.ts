@@ -19,13 +19,7 @@ export type HijriDate = {
     year: number;
 };
 export declare function gregorianToHijri(date: Date, locale: Locale): HijriDate;
-/**
- * Names of the 12 Hijri months in the requested language, correctly
- * indexed.
- *
- * Iterates days forward from today until all 12 month numbers have been
- * seen — robust across year boundaries, without assuming month lengths.
- */
+/** Names of the 12 Hijri months in the requested language, in month order (index 0 = Muharram). */
 export declare function hijriMonthNames(locale: Locale): string[];
 /** Hijri → Gregorian. `null` if no match was found. */
 export declare function hijriToGregorian(y: number, m: number, d: number, locale?: Locale): Date | null;
